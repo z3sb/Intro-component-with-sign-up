@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body{
+  font-family: 'Poppins', sans-serif;
+  background-image: url('../images/bg-intro-desktop.png');
+  background-position: center;
+  background-repeat: repeat;
+  background-color: hsl(0, 100%, 74%);
+}
+main{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr 50px;
+  width: 100vw;
+  height: 100vh;
+  padding: 100px;
+  padding-bottom: 0;
+  place-items: center ;
+  grid-template-areas: "text logo" "foot foot";
+}
+main .text{
+  grid-area: text;
+  padding: 10px;
+  color: white
+}
+main .text h1{
+  font-size: 45px;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+main .text p{
+  font-weight: 500;
+  line-height: 1.5;
+}
+main .signup{
+  grid-area: logo;
+  width: 80%;
+}
+main .signup h4{
+  text-align: center;
+  background-color: hsl(248, 32%, 49%);
+  color: white;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 5px 0 0 rgb(0 0 0 / 20%);
+}
+main .signup h4 span{
+  font-weight: 400;
+}
+main .signup form{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  width: 100%;
+}
+main .signup form div{
+  width: 100%;
+  position: relative;
+}
+main .signup form div.error input{
+  border-color: hsl(0, 100%, 74%) ;
+  border-width: 2px;
+  margin-bottom: 25px;
+}
+main .signup form div span{
+  display: none;
+}
+main .signup form div.error span{
+  display: inline;
+  position: absolute;
+  color: hsl(0, 100%, 74%) ;
+  top:25px;
+  left: 20px;
+  font-size: 13px;
+  font-weight: 600;
+}
+main .signup form div.error input:focus + span{
+  display: none;
+}
+main .signup form div.error input::placeholder{
+  color: transparent;
+}
+main .signup form div.error input[type='email']{
+  color: black !important;
+  z-index: 3333;
+}
+main .signup form div.error::before{
+  content: attr(message);
+  position: absolute;
+  color: hsl(0, 100%, 74%) ;
+  bottom: 0;
+  right: 0;
+  font-size: 12px;
+  font-weight: 600;
+}
+main .signup form div.error::after{
+  content: url('../images/icon-error.svg');
+  position: absolute;
+  top:50%;
+  transform: translateY(-60%);
+  right: 20px;
+}
+main .signup form input{
+  width: 100%;
+  margin: 10px 0;
+  padding: 15px;
+  border: 1px solid hsl(246, 25%, 77%);
+  border-radius: 5px;
+}
+main .signup form input::before{
+  content: '';
+  background-image: url('../images/icon-error.svg');
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top:0
+}
+main .signup form input:focus{
+  outline: none;
+  border-color: hsl(249, 10%, 26%);
+}
+main .signup form input::placeholder{
+  font-weight: 600;
+}
+main .signup form button{
+  width: 100%;
+  margin: 10px 0;
+  border-radius: 5px;
+  padding: 15px;
+  background-color:hsl(154, 59%, 51%);
+  color: white;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 15px;
+  border: 0;
+  border-bottom: 3px solid rgb(0 0 0 / 20%);
+  cursor:pointer
+}
+main .signup form button:hover{
+  opacity: 0.6;
+}
+main .signup form p{
+  font-size: 10px;
+  color: hsl(246, 25%, 77%);
+  font-weight: 600;
+}
+main .signup form p a{
+  text-decoration: none;
+  color: hsl(0, 100%, 74%) ;
+}
+footer{
+  grid-area: foot;
+  text-align: center;
+  color: hsl(249, 10%, 26%);
+}
+footer a{
+  text-decoration: none;
+  color: hsl(248, 32%, 49%);
+}
+
+@media (max-width:992px) {
+  main{
+    padding:100px 20px 0;
+  }
+  main .signup{
+    width: 100%;
+  }
+}
+@media (max-width:767px) {
+  main{
+    grid-template-rows: 1fr 1fr 30px;
+    grid-template-areas: "text text" "logo logo" "foot foot";
+    text-align: center;
+  }
+  main .text{
+    margin-bottom: 50px;
+  }
+  main .text h1{
+    font-size: 30px;
+  }
+  main .signup form p{
+    font-size: 12px;
+  }
+  main .signup h4{
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+  footer{
+    margin-top:40px;
+    font-size: 18px;
+  }
+}
+@media (max-width:400px) {
+  body{
+    background-image: url('../images/bg-intro-mobile.png');
+    background-repeat: no-repeat;
+  }
+}
